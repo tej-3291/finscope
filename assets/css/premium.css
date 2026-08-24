@@ -1,0 +1,432 @@
+/* assets/css/premium.css - Senior Developer Edition */
+:root {
+  /* ── Core Tokens ─────────────────────────────────────────────── */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Semantic Colors (Tiered) ────────────────────────────────── */
+  --p-50: #f0f9ff;
+  --p-100: #e0f2fe;
+  --p-400: #38bdf8;
+  --p-500: #0ea5e9;
+  --p-600: #0284c7;
+  --s-50: #ecfdf5;
+  --s-400: #34d399;
+  --s-500: #10b981;
+  --s-600: #059669;
+  --e-50: #fef2f2;
+  --e-400: #f87171;
+  --e-500: #ef4444;
+
+  /* ── Elevation & Glass (Glass 2.0) ──────────────────────────── */
+  --glass-blur: 24px;
+  --glass-reflection: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
+  --shadow-elite: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+
+  /* ── Motion & Fluidity ────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-slow: 0.6s var(--ease-out-expo);
+  --trans-fast: 0.3s var(--ease-out-expo);
+}
+
+/* ── Theme Definitions ─────────────────────────────────────────── */
+body[data-theme="dark"] {
+  --bg-app: #020617;
+  --bg-card: rgba(15, 23, 42, 0.65);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: var(--p-400);
+  --accent-glow: rgba(56, 189, 248, 0.2);
+
+  background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+    var(--bg-app);
+}
+
+body[data-theme="light"] {
+  --bg-app: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --border-card: rgba(15, 23, 42, 0.08);
+  /* Darker border for light mode */
+  --text-main: #020617;
+  /* Slate 950 for max contrast */
+  --text-muted: #475569;
+  /* Slate 600 */
+  --accent: var(--p-600);
+  --accent-glow: rgba(2, 132, 199, 0.15);
+
+  background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+    var(--bg-app);
+}
+
+body[data-theme="emerald"] {
+  --bg-app: #022c22;
+  --bg-card: rgba(6, 78, 59, 0.65);
+  --border-card: rgba(255, 255, 255, 0.12);
+  --text-main: #ffffff;
+  /* pure white for emerald contrast */
+  --text-muted: #e0f2fe;
+  /* Brighter for maximum legibility */
+  --accent: #fbbf24;
+  --accent-glow: rgba(251, 191, 36, 0.2);
+
+  background: radial-gradient(circle at 0% 100%, rgba(16, 185, 129, 0.2) 0%, transparent 40%),
+    var(--bg-app);
+}
+
+/* ── Global Styles ─────────────────────────────────────────────── */
+body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  background-attachment: fixed;
+  transition: background 0.5s ease;
+  overflow-x: hidden;
+}
+
+/* ── Typography Masterclass ───────────────────────────────────── */
+/* Override Bootstrap Text Utilities to be Theme-Aware globally */
+.text-light,
+.text-white,
+.text-dark,
+.text-body {
+  color: var(--text-main) !important;
+}
+
+.text-secondary,
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Global element text inheritance */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-main);
+}
+
+p,
+span,
+li,
+td,
+th,
+label,
+small,
+strong,
+em,
+blockquote {
+  color: inherit;
+}
+
+body * {
+  color: inherit;
+}
+
+/* Form elements must use theme text */
+.form-select,
+.form-control,
+.form-select option {
+  color: var(--text-main) !important;
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+}
+
+.form-select:focus,
+.form-control:focus {
+  color: var(--text-main) !important;
+  background-color: var(--bg-card) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-glow) !important;
+}
+
+/* Table theming */
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+  color: var(--text-main);
+  border-color: var(--border-card);
+}
+
+.table {
+  --bs-table-color: var(--text-main);
+  --bs-table-border-color: var(--border-card);
+}
+
+/* Dropdown & modal theming */
+.dropdown-menu {
+  background: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+}
+
+.dropdown-item {
+  color: var(--text-main) !important;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Bootstrap badge overrides */
+.badge.bg-dark,
+.badge.bg-secondary {
+  background: var(--bg-card) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-card);
+}
+
+/* Global Anchor and Placeholder Text */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--trans-fast);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.65 !important;
+}
+
+/* Keep existing gradients and special text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-neon {
+  color: var(--accent) !important;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.text-positive {
+  color: var(--s-400) !important;
+}
+
+.text-negative {
+  color: var(--e-400) !important;
+}
+
+/* ── Glassmorphism 2.0 (Elite Cards) ───────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-card);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-elite);
+  position: relative;
+  overflow: hidden;
+  transition: var(--trans-slow);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.005);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
+}
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.glass-card:hover .card-shine {
+  opacity: 1;
+}
+
+/* ── Interactive Navigation ───────────────────────────────────── */
+.fin-navbar {
+  background: rgba(var(--bg-app-rgb, 2, 6, 23), 0.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-card);
+  padding: 1.25rem 0;
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--trans-fast);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent) !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: var(--trans-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ── Senior UI Components ─────────────────────────────────────── */
+.btn-neon {
+  background: var(--accent);
+  color: #000;
+  font-weight: 800;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 10px 20px -5px var(--accent-glow);
+  transition: var(--trans-fast);
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px var(--accent-glow);
+  filter: brightness(1.1);
+}
+
+/* ── Motion & Loaders ─────────────────────────────────────────── */
+.fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Dashboard Polish ────────────────────────────────────────── */
+#insightsContainer .carousel-item {
+  text-align: left !important;
+}
+
+/* Elite Mini Indicator - High Contrast */
+.mini-indicator {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+  filter: brightness(1.2);
+}
+
+#insightsContainer .shield-icon {
+  fill: var(--accent) !important;
+  /* Ensure visibility */
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* ── Form Controls & Elements ────────────────────────────────── */
+/* Base form elements — typography section handles color/bg overrides globally */
+.form-control,
+.form-select {
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  transition: var(--trans-fast);
+}
+
+/* Input group addon (prefix icons like ₹) */
+.input-group-text {
+  background: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+  color: var(--text-main) !important;
+}
+
+/* Form labels and helper text */
+.form-label {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+}
+
+.form-text {
+  color: var(--text-muted) !important;
+}
+
+/* Outline buttons — adapt to theme */
+.btn-outline-light,
+.btn-outline-secondary,
+.btn-outline-dark {
+  color: var(--text-main) !important;
+  border-color: var(--border-card) !important;
+  background: transparent !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-secondary:hover,
+.btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-main) !important;
+}
+
+/* Alerts */
+.alert {
+  color: var(--text-main);
+  border-color: var(--border-card);
+}
+
+/* Summary/filter bars used across pages */
+.summary-bar {
+  display: flex;
+  gap: 24px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-card);
+}
+
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-card);
+  border-radius: 10px;
+  border: 3px solid var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

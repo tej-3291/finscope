@@ -32,3 +32,13 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Local database credentials
+config/database.php
+
+# Local environment files
+.env
+.env.local
+
+# User-uploaded/generated data
+uploads/
