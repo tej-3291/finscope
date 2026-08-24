@@ -211,3 +211,29 @@ The success of Finscope can be measured using the following indicators:
 * Loan processing.
 * Professional financial advisory services.
 * Real-time bank account synchronization unless separately integrated.
+
+## Quick Start – Local Development
+
+### Prerequisites
+- Docker Desktop
+- Git
+- Web browser
+
+### Run the application with Docker
+
+1. Clone the repository and enter the project folder.
+2. Build the Docker images:
+
+```bash
+docker compose build
+
+
+## Quick Start – Local Development
+
+### Run with Docker
+
+```bash
+docker compose build
+docker compose up -d
+docker compose ps
+
