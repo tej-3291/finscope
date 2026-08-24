@@ -14,7 +14,7 @@ The platform allows users to record and review income and expenses, organize tra
 
 The goal of Finscope is to turn raw financial transactions into simple, understandable information that users can act upon.
 
----
+--- 
 
 ## 2. Problem It Solves
 
