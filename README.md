@@ -237,3 +237,23 @@ docker compose build
 docker compose up -d
 docker compose ps
 
+---
+
+## Software Design
+
+Finscope follows a modular layered design that separates the user interface, application logic, transaction management, financial insights, simulation features, database, and deployment environment. This separation improves maintainability, keeps responsibilities focused, and allows individual modules to be changed with minimal impact on the rest of the system.
+
+### Design Assets
+
+- [High-Level Architecture](design/Finscope_High_Level_Architecture.png)
+- [Editable Draw.io Architecture](design/Finscope_High_Level_Architecture.drawio)
+- [Figma Screens 01–03](design/Figma_Screens_01-03.png)
+- [Figma Screens 04–06](design/Figma_Screens_04-06.png)
+
+### Key Design Choices
+
+1. **Modular architecture** — separates authentication, transactions, insights, categories, simulator, profile, and analytics.
+2. **Low coupling** — modules communicate through defined interfaces instead of depending directly on each other's internal implementation.
+3. **High cohesion** — each module has one clear responsibility.
+4. **Abstraction** — database and application operations are organized behind reusable functions and components.
+5. **Dockerized development** — the application and database are packaged consistently for local development and testing.
