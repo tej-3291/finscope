@@ -1,3 +1,4 @@
+<?php $baseUrl = (strpos($_SERVER['SCRIPT_NAME'] ?? '', '/finscope/') === 0) ? '/finscope' : ''; ?>
 <!-- includes/header.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/finscope/assets/css/premium.css">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/assets/css/premium.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -63,7 +64,7 @@
 <?php if (isset($_SESSION['user_id'])): ?>
 <nav class="navbar navbar-expand-lg fin-navbar fixed-top">
     <div class="container">
-        <a class="navbar-brand text-neon fw-bold fs-4" href="/finscope/dashboard/">
+        <a class="navbar-brand text-neon fw-bold fs-4" href="<?= $baseUrl ?>/dashboard/">
             <i class="bi bi-droplet-half me-2"></i>Finscope
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -72,16 +73,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="/finscope/dashboard/"><i class="bi bi-grid-1x2-fill nav-icon me-1"></i> Dashboard</a>
+                    <a class="nav-link px-3" href="<?= $baseUrl ?>/dashboard/"><i class="bi bi-grid-1x2-fill nav-icon me-1"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="/finscope/categories/"><i class="bi bi-pie-chart-fill nav-icon me-1"></i> Categories</a>
+                    <a class="nav-link px-3" href="<?= $baseUrl ?>/categories/"><i class="bi bi-pie-chart-fill nav-icon me-1"></i> Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="/finscope/simulator/"><i class="bi bi-sliders nav-icon me-1"></i> Simulator</a>
+                    <a class="nav-link px-3" href="<?= $baseUrl ?>/simulator/"><i class="bi bi-sliders nav-icon me-1"></i> Simulator</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3" href="/finscope/uploads/"><i class="bi bi-file-earmark-arrow-up-fill nav-icon me-1"></i> Import</a>
+                    <a class="nav-link px-3" href="<?= $baseUrl ?>/uploads/"><i class="bi bi-file-earmark-arrow-up-fill nav-icon me-1"></i> Import</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center gap-3">
@@ -96,9 +97,9 @@
                         <i class="bi bi-person-circle fs-5"></i> Profile
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg" style="min-width: 200px; padding: 12px; border-radius: 16px;">
-                        <li><a class="dropdown-item py-2" href="/finscope/profile/" style="border-radius: 8px;"><i class="bi bi-gear-fill me-2 text-muted"></i> Settings</a></li>
+                        <li><a class="dropdown-item py-2" href="<?= $baseUrl ?>/profile/" style="border-radius: 8px;"><i class="bi bi-gear-fill me-2 text-muted"></i> Settings</a></li>
                         <li><hr class="dropdown-divider opacity-10"></li>
-                        <li><a class="dropdown-item py-2 text-danger" href="/finscope/auth/logout.php"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                        <li><a class="dropdown-item py-2 text-danger" href="<?= $baseUrl ?>/auth/logout.php"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
